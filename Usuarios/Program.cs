@@ -24,3 +24,7 @@ for(int i = 0; i < 5; i++)
     Console.WriteLine($"Latitud: {misUsuarios[i].address.geo.lat}");
     Console.WriteLine($"Longitud: {misUsuarios[i].address.geo.lng}\n");
 }
+
+var opciones = new JsonSerializerOptions { WriteIndented = true };
+string jsonString=JsonSerializer.Serialize(misUsuarios,opciones);
+await File.WriteAllTextAsync("misUsuarios.json",jsonString);
